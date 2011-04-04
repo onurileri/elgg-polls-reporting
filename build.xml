@@ -1,0 +1,20 @@
+<project name="elgg-polls-reporting" default="checkstyle">
+    <target name="init">
+        <mkdir dir="${basedir}/build"/>
+        <mkdir dir="${basedir}/build/logs"/>
+    </target>
+
+    <target name="clean">
+        <delete dir="${basedir}/build"/>
+    </target>
+
+    <target name="checkstyle" depends="init">
+            <exec dir="${basedir}" executable="phpcs" output="${basedir}/build/logs/checkstyle.xml" failonerror="false">
+             <arg line="--standard=Elgg"/>
+             <arg line="--report=checkstyle"/>
+             <arg line="source"/>
+        </exec>
+
+    </target>
+</project>
+
