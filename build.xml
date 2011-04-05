@@ -16,5 +16,11 @@
         </exec>
 
     </target>
+
+    <target name="dist" depends="init">
+        <tar destfile="${basedir}/build/${ant.project.name}.tar" basedir="${basedir}/source"/>
+        <gzip destfile="${basedir}/build/${ant.project.name}.tar.gz" src="${basedir}/build/${ant.project.name}.tar"/>
+    </target>
+
 </project>
 
