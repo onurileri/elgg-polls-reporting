@@ -111,7 +111,7 @@ echo '</pre>';
 
 		}
 
-		echo elgg_view('page_elements/contentwrapper', array('body' => $body));
+		echo elgg_view('page/elements/body', array('body' => $body));
 	}
 
 ?>

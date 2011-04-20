@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin_manifest>
+	<field key="author" value="Surevine Ltd" />
+	<field key="version" value="0.1.0" />
+	<field key="description" value="Polls Reporting" />
+	<field key="website" value="http://www.surevine.com" />
+	<field key="copyright" value="(c) Surevine Ltd 2010" />
+	<field key="licence" value="GNU Public License version 2" />
+	<field key="elgg_version" value="2009031301" />
+	
+	<requires>
+		<type>plugin</type>
+		<name>polls</name>
+	</requires>
+	
+</plugin_manifest>

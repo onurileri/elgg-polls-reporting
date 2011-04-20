@@ -48,7 +48,7 @@
 */
 		}
 		
-		$body = elgg_view('page_elements/contentwrapper', array('body' => $body));
+		$body = elgg_view('page/elements/body', array('body' => $body));
 		
 		$body .= elgg_view('input/hidden', array(
 			'internalname' => 'poll_guid',

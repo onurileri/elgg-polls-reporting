@@ -182,7 +182,7 @@ HTML;
 			$body .= '<p>' . elgg_echo('polls_reporting:report:no_data') . '</p>';
 		}	
 
-		echo elgg_view('page_elements/contentwrapper', array('body' => $body));
+		echo elgg_view('page/elements/body', array('body' => $body));
 	}
 
 ?>
