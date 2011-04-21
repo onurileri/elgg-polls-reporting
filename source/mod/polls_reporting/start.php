@@ -27,9 +27,9 @@
 		register_action("polls_reporting/view_report", false, $CONFIG->pluginspath . "polls_reporting/actions/view_report.php");
 		
 		// Extend some views
-		extend_view('css','polls_reporting/css');
-		extend_view('js/initialise_elgg','js/jquery.autocomplete');
-		extend_view('js/initialise_elgg','polls_reporting/js');
+		elgg_extend_view('css','polls_reporting/css');
+		elgg_extend_view('js/initialise_elgg','js/jquery.autocomplete');
+		elgg_extend_view('js/initialise_elgg','polls_reporting/js');
 	}
 
 	/**

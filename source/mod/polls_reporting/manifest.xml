@@ -6,7 +6,7 @@
 	<field key="website" value="http://www.surevine.com" />
 	<field key="copyright" value="(c) Surevine Ltd 2010" />
 	<field key="licence" value="GNU Public License version 2" />
-	<field key="elgg_version" value="2009031301" />
+	<field key="elgg_version" value="2011032200" />
 	
 	<requires>
 		<type>plugin</type>
