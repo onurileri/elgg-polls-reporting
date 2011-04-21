@@ -11,42 +11,14 @@
 	{
 		global $CONFIG;
 
-		$body .= '<ul>';
+		$body .= '<ul class="elgg-list">';
 
-		$any_report_is_editable = false;
-		
 		foreach ($reports as $report)
 		{
 			$body .= elgg_view('polls_reporting/reportlisting', array('report' => $report));
-			
-			if(!$any_report_is_editable && $report->canEdit()) {
-				$any_report_is_editable = true;
-			}
 		}
 
 		$body .= '</ul>';
-
-		if($any_report_is_editable)
-		{
-			$body = '<div class="reports-controls"><ul><li>' .
-				elgg_view('input/button',array(
-					'internalname' => 'edit_button_top',
-					'value' => elgg_echo('polls_reporting:edit_reports_access'),
-					'class' => 'edit-reports-button submit_button',
-					'type' => 'button',
-				)) . 
-				'</li></ul></div><div class="clearfloat"></div>' . $body;
-/*
-			$body .= '<div class="reports-controls"><ul><li>' .
-				elgg_view('input/button',array(
-					'internalname' => 'edit_button_bottom',
-					'value' => elgg_echo('polls_reporting:edit_reports_access'),
-					'class' => 'edit-reports-button submit_button',
-					'type' => 'button',
-				)) . 
-				'</li></ul></div><div class="clearfloat"></div>';
-*/
-		}
 		
 		$body = elgg_view('page/elements/body', array('body' => $body));
 		

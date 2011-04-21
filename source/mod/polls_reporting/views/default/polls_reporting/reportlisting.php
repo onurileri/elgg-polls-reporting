@@ -71,5 +71,5 @@
 	
 	$info .= '<div class="clearfloat"></div></div>';
 		
-	echo '<li id="polls-reporting-report-listing-' . $report->getId() . '">' . elgg_view_listing($icon, $info) . '</li>';
+	echo '<li id="polls-reporting-report-listing-' . $report->getId() . '" class="elgg-list-item">' . elgg_view_listing($icon, $info) . '</li>';
 ?>

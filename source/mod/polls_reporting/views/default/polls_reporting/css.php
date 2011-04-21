@@ -39,11 +39,6 @@
 	font-size: 1em;
 }
 
-#polls_reporting_reportlist .reports-controls li {
-	float: right;
-	margin-left: 10px;
-}
-
 #polls_reporting_reportlist .edit-reports-button {
 	display: none;
 }

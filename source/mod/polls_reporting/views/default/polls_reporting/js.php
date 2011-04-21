@@ -6,11 +6,11 @@ $(document).ready( function() {
 	// Bind the event to the select box
 	$('#polls_reporting_reportlist .report-edit').hide();
 	
-	$('#polls_reporting_reportlist .edit-reports-button').show();
+	$('a.polls-reporting-edit-reports-button').show();
 	
-	$('#polls_reporting_reportlist .edit-reports-button').bind('click', function() {
+	$('a.polls-reporting-edit-reports-button').bind('click', function() {
 		$('#polls_reporting_reportlist .report-edit').slideDown();
-		$('#polls_reporting_reportlist .edit-reports-button').slideUp();
+		$('a.polls-reporting-edit-reports-button').fadeOut();
 	});
 	
 	$('#polls_reporting_reportlist .report-edit :input').bind('change', function(evt) {

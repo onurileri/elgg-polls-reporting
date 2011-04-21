@@ -50,11 +50,12 @@
 		$trail_extra[] = array('title' => $report->getTitle(), 'url' => $CONFIG->url . 'pg/polls/reports/' . $item->guid . '/' . $report->getId());
 	}
 	
-	$body = elgg_view('polls/breadcrumbs', array('item' => $item, 'extra' => $trail_extra));
-
+	$header = elgg_view('polls/breadcrumbs', array('item' => $item, 'extra' => $trail_extra));
+	
 	$title = $item->title;
-	$body .= elgg_view_title($title);
 
+	$content = '';
+	
 	if ($report)
 	{
 		if(get_input('view') == 'csv')
@@ -70,7 +71,7 @@
 		}
 		else
 		{
-			$body .= elgg_view('polls_reporting/reports/' . $report->getId(),
+			$content .= elgg_view('polls_reporting/reports/' . $report->getId(),
 				array('poll' => $item));
 		}
 	}
@@ -79,15 +80,36 @@
 		$report_mapper = PollsReporting_ReportMapper::getInstance();
 		$reports = $report_mapper->findAllByPollGuidForUserGuid($item->getGuid(), get_loggedin_userid());
 		
-		$body .= elgg_view('polls_reporting/select_report',
+		$content .= elgg_view('polls_reporting/select_report',
 					array('poll' => $item, 'reports' => $reports));
-	}
 
-	$body = '<div id="polls_reporting_reportlist">' . $body . '</div>';
+		// If any of the reports are editable then add a button to change them to the header
+		foreach ($reports as $report)
+		{
+			if(!$any_report_is_editable && $report->canEdit()) {
+				elgg_register_menu_item('title', array(
+					'name' => 'edit_button_top',
+					'text' => elgg_echo('polls_reporting:edit_reports_access'),
+					'link_class' => 'polls-reporting-edit-reports-button elgg-button elgg-button-action',
+				));
+				
+				break;
+			}
+		}
+	}
 	
-	$body = elgg_view_layout('two_column_left_sidebar', '', $body, $sidebar);
+	$buttons = elgg_view_menu('title', array('sort_by' => 'priority', 'class' => 'elgg-menu-hz'));
+	
+	$header .= elgg_view('page/layouts/content/header', array('title' => $title, 'buttons' => $buttons));
+	
+	$content = '<div id="polls_reporting_reportlist">' . $content . '</div>';
+
+	$body .= elgg_view_layout('content', array(
+		'content' => $content,
+		'header' => $header,
+		'filter' => '',
+	));
 	
 	// Finally draw the page
-	page_draw($title, $body);
-
+	echo elgg_view_page($title, $body);	
 ?>
