@@ -8,7 +8,8 @@ $(document).ready( function() {
 	
 	$('a.polls-reporting-edit-reports-button').show();
 	
-	$('a.polls-reporting-edit-reports-button').bind('click', function() {
+	$('a.polls-reporting-edit-reports-button').bind('click', function(event) {
+		event.preventDefault();
 		$('#polls_reporting_reportlist .report-edit').slideDown();
 		$('a.polls-reporting-edit-reports-button').fadeOut();
 	});

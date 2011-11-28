@@ -16,7 +16,7 @@
 		
 		$candidate_guid = (int) get_input('candidate_guid');
 
-		$categories = array('"poll_stars5"', '"poll_thumbs"');
+		$categories = array('"poll_stars5"', '"poll_thumbs"', '"poll_custom_options"');
 		
 		for($i = 1; $i < 5; ++$i)
 		{

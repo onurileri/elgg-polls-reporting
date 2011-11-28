@@ -14,7 +14,6 @@
 		// Register a page handler, so we can have nice URLs
 		register_page_handler('polls_reporting', 'polls_reporting_page_handler');
 
-
 		// add a submenu to polls
 		register_plugin_hook('polls:submenu', 'poll', 'polls_reporting_submenu_hook');
 

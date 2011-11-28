@@ -86,7 +86,7 @@
 		// If any of the reports are editable then add a button to change them to the header
 		foreach ($reports as $report)
 		{
-			if(!$any_report_is_editable && $report->canEdit()) {
+			if($report->canEdit()) {
 				elgg_register_menu_item('title', array(
 					'name' => 'edit_button_top',
 					'text' => elgg_echo('polls_reporting:edit_reports_access'),
@@ -98,9 +98,9 @@
 		}
 	}
 	
-	$buttons = elgg_view_menu('title', array('sort_by' => 'priority', 'class' => 'elgg-menu-hz'));
+//	$buttons = elgg_view_menu('title', array('sort_by' => 'priority', 'class' => 'elgg-menu-hz'));
 	
-	$header .= elgg_view('page/layouts/content/header', array('title' => $title, 'buttons' => $buttons));
+	$header .= elgg_view('page/layouts/content/header', array('title' => $title));
 	
 	$content = '<div id="polls_reporting_reportlist">' . $content . '</div>';
 

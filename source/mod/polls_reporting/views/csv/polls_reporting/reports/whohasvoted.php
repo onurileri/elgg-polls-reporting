@@ -20,7 +20,8 @@
 			"join {$CONFIG->dbprefix}metadata as md on a.entity_guid = md.entity_guid " .
 			"join {$CONFIG->dbprefix}metastrings as n2 on md.name_id = n2.id " .
 			"join {$CONFIG->dbprefix}metastrings as v2 on md.value_id = v2.id " .
-			"where (n1.string = 'poll_stars5' or n1.string = 'poll_thumbs') " .
+			"where (n1.string = 'poll_stars5' or n1.string = 'poll_thumbs' ".
+			"or n1.string = 'poll_custom_options') " .
 			"and n2.string = 'parent_guid' and v2.string = '" . $poll->getGUID() . "' " .
 			"group by u.name";
 
