@@ -5,7 +5,6 @@
 	global $CONFIG;
 	
 	gatekeeper();
-//	action_gatekeeper();
 
 	set_context('polls_reporting');
 
