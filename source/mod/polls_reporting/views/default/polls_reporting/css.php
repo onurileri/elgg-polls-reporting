@@ -270,19 +270,29 @@
 	padding: 5px;
 	border-radius: 5px;
 	-moz-border-radius: 5px;
-	border: 2px groove #E2E2E2;
+	border: 1px solid #666666;
 	clear: both;
 	width: 100%;
 }
 
+#polls_reporting_reportlist .report-who-has-voted table p {
+	padding: 0;
+	margin: 0;
+}
+
+#polls_reporting_reportlist .report-who-has-voted table tr.major {
+	border-top: 1px solid #666666;
+}
+
 #polls_reporting_reportlist .report-who-has-voted table td {
-	border-bottom: 1px dashed #E2E2E2;
+	border-bottom: 1px dashed #666666;
 }
 
 
 #polls_reporting_reportlist .report-who-has-voted table th {
 	font-weight: bold;
-	border-bottom: 2px groove #E2E2E2;
+	border-bottom: 1px solid #666666;
+	vertical-align: middle;
 }
 
 #polls_reporting_reportlist .report-who-has-voted table td, #polls_reporting_reportlist .report-who-has-voted table th {

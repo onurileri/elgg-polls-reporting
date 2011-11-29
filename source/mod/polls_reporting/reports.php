@@ -64,21 +64,33 @@
 			header('Content-Disposition: attachment');
 			header('Cache-Control: private, must-revalidate');
 			header('Pragma: cache');
-			echo elgg_view('polls_reporting/reports/' . $report->getId(), array(
+			
+			if(elgg_view_exists('polls_reporting/reports/' . $report->getId() . '/poll_type_' . $item->voting_type)) {
+				$view = 'polls_reporting/reports/' . $report->getId() . '/poll_type_' . $item->voting_type;
+			} else {
+				$view = 'polls_reporting/reports/' . $report->getId();
+			}			
+			
+			echo elgg_view($view, array(
 				'poll' => $item
 			));
 			exit;
 		}
 		else
 		{
-			$content .= elgg_view('polls_reporting/reports/' . $report->getId(),
-				array('poll' => $item));
+			if(elgg_view_exists('polls_reporting/reports/' . $report->getId() . '/poll_type_' . $item->voting_type)) {
+				$view = 'polls_reporting/reports/' . $report->getId() . '/poll_type_' . $item->voting_type;
+			} else {
+				$view = 'polls_reporting/reports/' . $report->getId();
+			}
+			
+			$content .= elgg_view($view, array('poll' => $item));
 		}
 	}
 	else
 	{
 		$report_mapper = PollsReporting_ReportMapper::getInstance();
-		$reports = $report_mapper->findAllByPollGuidForUserGuid($item->getGuid(), get_loggedin_userid());
+		$reports = $report_mapper->findAllByPollGuidForUserGuid($item->getGuid(), elgg_get_logged_in_user_guid());
 		
 		$content .= elgg_view('polls_reporting/select_report',
 					array('poll' => $item, 'reports' => $reports));
