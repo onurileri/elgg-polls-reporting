@@ -34,8 +34,7 @@ $(document).ready( function() {
 		};
 		
 		// Ajax request
-		$.ajax({
-			url: "<?php echo $CONFIG->url; ?>action/polls_reporting/update_report_access",
+		elgg.action("polls_reporting/update_report_access", {
 			data: params,
 			dataType: "json",
 			complete: function() {

@@ -680,6 +680,8 @@
 		 */
 		public function findAllByPollGuidForUserGuid($poll_guid, $user_guid)
 		{
+			$is_admin = elgg_is_admin_user($user_guid);
+			
 			// Get all the different types of report
 			$reportdefinition_mapper = PollsReporting_ReportDefinitionMapper::getInstance();
 			$definitions = $reportdefinition_mapper->findAll();
@@ -695,7 +697,7 @@
 				
 				$this->updateReportAccessId($report);
 				
-				if($report->canView($user_guid))
+				if($is_admin || $report->canView($user_guid))
 					$results[] = $report;
 			}
 			

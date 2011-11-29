@@ -54,7 +54,7 @@
 		'method' => 'post',
 	)) . '</div>' . $info;
 		
-	if($report->canEdit())
+	if($report->canEdit() || elgg_is_admin_logged_in())
 	{
 		$id_attr = 'input_report_access_id_' . $report->getPollGuid() . '_' . $report->getId();
 		
